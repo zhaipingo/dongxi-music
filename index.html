@@ -1,0 +1,1248 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>東。西｜琵琶 × 大提琴音樂雙人企劃</title>
+  <!--
+  圖片放置位置：
+  images/shengzhi.jpg ＝ 邱聖之照片
+  images/joy.jpg?v=2 ＝ Joy 照片
+  images/logo-final.png ＝ 東。西 logo
+
+  建議照片比例：
+  直式 4:5 或 3:4
+  建議尺寸：
+  至少 1200px 高
+  -->
+  <style>
+    :root {
+      --cream: #f7f0e6;
+      --cream-2: #fffaf2;
+      --ink: #211914;
+      --muted: #6f6258;
+      --brown: #8a5838;
+      --brown-dark: #583722;
+      --gold: #c49a55;
+      --green: #314536;
+      --line: rgba(33, 25, 20, .16);
+      --card: rgba(255, 250, 242, .78);
+      --shadow: 0 20px 48px rgba(75, 46, 26, .12);
+      --radius: 18px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+      background: var(--cream);
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 8%, rgba(196, 154, 85, .16), transparent 28%),
+        radial-gradient(circle at 92% 18%, rgba(49, 69, 54, .12), transparent 25%),
+        linear-gradient(180deg, var(--cream-2), var(--cream));
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", Arial, sans-serif;
+      line-height: 1.75;
+      letter-spacing: .01em;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 250, 242, .86);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand-mark {
+      display: inline-flex;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .brand-mark img {
+      width: 92px;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      padding: 8px 0;
+    }
+
+    .nav-links::-webkit-scrollbar { display: none; }
+
+    .nav-links a {
+      flex: 0 0 auto;
+      padding: 7px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 13px;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--ink);
+      background: rgba(138, 88, 56, .1);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    section {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 78px 0;
+      scroll-margin-top: 86px;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--brown);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    h1, h2 {
+      font-family: "Songti TC", "Noto Serif TC", "PMingLiU", serif;
+      font-weight: 700;
+    }
+
+    .hero-logo {
+      position: relative;
+      width: min(560px, 92vw);
+      margin: 0 0 8px -18px;
+    }
+
+    .hero-logo img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 16px 28px rgba(75, 46, 26, .1));
+    }
+
+    .logo-fallback {
+      display: none;
+      color: #1c120d;
+      font-family: "Kaiti TC", "STKaiti", "Songti TC", "Noto Serif TC", serif;
+      font-size: clamp(76px, 12vw, 156px);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: .14em;
+    }
+
+    h2 {
+      font-size: clamp(32px, 5vw, 58px);
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: clamp(17px, 2vw, 22px);
+      line-height: 1.8;
+    }
+
+    .hero {
+      position: relative;
+      width: min(1240px, calc(100% - 56px));
+      min-height: calc(100vh - 64px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 530px);
+      align-items: center;
+      gap: 48px;
+      padding: 70px 0 86px 14px;
+    }
+
+    .hero::before,
+    .hero::after {
+      position: absolute;
+      z-index: 0;
+      font-family: "Songti TC", serif;
+      font-size: clamp(130px, 22vw, 320px);
+      font-weight: 700;
+      line-height: 1;
+      color: rgba(138, 88, 56, .07);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      content: "東";
+      left: -26px;
+      top: 20px;
+    }
+
+    .hero::after {
+      content: "西";
+      right: -24px;
+      bottom: 34px;
+    }
+
+    .hero-copy,
+    .hero-portraits {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-sub {
+      margin: 16px 0 18px;
+      color: var(--brown-dark);
+      font-size: clamp(20px, 3vw, 34px);
+      font-weight: 800;
+      line-height: 1.4;
+    }
+
+    .slogan {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 28px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 250, 242, .62);
+      color: var(--green);
+      font-weight: 800;
+      box-shadow: 0 10px 24px rgba(75, 46, 26, .08);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border: 1px solid var(--ink);
+      border-radius: 999px;
+      background: var(--ink);
+      color: var(--cream-2);
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .btn.secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 28px rgba(75, 46, 26, .14);
+    }
+
+    .hero-portraits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .portrait-card {
+      position: relative;
+      padding: 10px;
+      border: 1px solid rgba(33, 25, 20, .12);
+      border-radius: 24px;
+      background: rgba(255, 250, 242, .72);
+      box-shadow: var(--shadow);
+      transition: transform .24s ease, box-shadow .24s ease;
+    }
+
+    .portrait-card:nth-child(2) {
+      margin-top: 42px;
+    }
+
+    .portrait-card:hover,
+    .member-card:hover,
+    .soft-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 26px 60px rgba(75, 46, 26, .16);
+    }
+
+    .portrait-media,
+    .member-photo {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      background:
+        linear-gradient(135deg, rgba(138, 88, 56, .12), rgba(49, 69, 54, .1)),
+        #e8dccd;
+    }
+
+    .portrait-media {
+      aspect-ratio: 4 / 5;
+    }
+
+    .portrait-media img,
+    .member-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(.82) contrast(1.02);
+    }
+
+    .portrait-media img.is-missing,
+    .member-photo img.is-missing {
+      opacity: 0;
+    }
+
+    .image-fallback {
+      position: absolute;
+      inset: 0;
+      display: none;
+      place-items: center;
+      padding: 24px;
+      color: var(--muted);
+      text-align: center;
+      font-weight: 800;
+    }
+
+    img.is-missing + .image-fallback {
+      display: grid;
+    }
+
+    img.is-missing + .logo-fallback {
+      display: block;
+    }
+
+    .portrait-caption {
+      padding: 14px 6px 4px;
+    }
+
+    .portrait-caption strong {
+      display: block;
+      font-size: 19px;
+      line-height: 1.3;
+    }
+
+    .portrait-caption span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .soft-card,
+    .member-card,
+    .quote-panel,
+    .timeline-item,
+    .formula-card,
+    .notice-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: 0 12px 32px rgba(75, 46, 26, .08);
+    }
+
+    .soft-card,
+    .formula-card,
+    .notice-card {
+      padding: 22px;
+    }
+
+    .soft-card h3,
+    .formula-card h3,
+    .notice-card h3 {
+      margin-bottom: 10px;
+      color: var(--brown-dark);
+    }
+
+    .soft-card p,
+    .formula-card p,
+    .notice-card p,
+    li {
+      color: var(--muted);
+    }
+
+    .quote-panel {
+      position: relative;
+      padding: clamp(28px, 4vw, 46px);
+      overflow: hidden;
+    }
+
+    .quote-panel::after {
+      content: "";
+      position: absolute;
+      right: -18px;
+      bottom: -18px;
+      width: min(390px, 58vw);
+      height: 230px;
+      background: url("images/logo-final.png?v=3") center / contain no-repeat;
+      opacity: .075;
+      pointer-events: none;
+    }
+
+    .quote-panel strong {
+      display: block;
+      max-width: 800px;
+      font-family: "Songti TC", serif;
+      font-size: clamp(24px, 4vw, 44px);
+      line-height: 1.35;
+    }
+
+    .positioning-box {
+      position: relative;
+      z-index: 1;
+      margin-top: 34px;
+      padding: clamp(24px, 4vw, 42px);
+      border: 1px solid rgba(196, 154, 85, .12);
+      border-radius: 14px;
+      background: rgba(247, 234, 218, .72);
+      text-align: center;
+    }
+
+    .positioning-box .box-label {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--brown);
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: .08em;
+    }
+
+    .positioning-box strong {
+      margin: 0 auto;
+      max-width: 1080px;
+      font-size: clamp(23px, 2.6vw, 34px);
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    .members {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .member-card {
+      overflow: hidden;
+      transition: transform .24s ease, box-shadow .24s ease;
+    }
+
+    .member-photo {
+      aspect-ratio: 16 / 11;
+      border-radius: 0;
+    }
+
+    .member-body {
+      padding: 24px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      padding: 0 10px;
+      border: 1px solid rgba(138, 88, 56, .22);
+      border-radius: 999px;
+      color: var(--brown-dark);
+      background: rgba(196, 154, 85, .12);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .member-role {
+      margin: 8px 0 8px;
+      color: var(--brown);
+      font-weight: 800;
+    }
+
+    .ig {
+      color: var(--green);
+      font-weight: 800;
+    }
+
+    .divider {
+      height: 1px;
+      margin: 18px 0;
+      background: var(--line);
+    }
+
+    ul {
+      margin: 12px 0 0;
+      padding-left: 18px;
+    }
+
+    li + li {
+      margin-top: 7px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 250, 242, .72);
+      box-shadow: 0 10px 28px rgba(75, 46, 26, .08);
+    }
+
+    table {
+      width: 100%;
+      min-width: 720px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 15px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--brown-dark);
+      background: rgba(196, 154, 85, .14);
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    td {
+      color: var(--muted);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .ratio-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .ratio-row {
+      display: grid;
+      grid-template-columns: 160px 1fr 170px;
+      gap: 14px;
+      align-items: center;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255, 250, 242, .7);
+    }
+
+    .bar {
+      height: 12px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: rgba(33, 25, 20, .09);
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--brown), var(--gold));
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 20px;
+      padding: 22px;
+    }
+
+    .timeline-item strong {
+      color: var(--green);
+      font-size: 18px;
+    }
+
+    .steps {
+      counter-reset: step;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .step {
+      position: relative;
+      padding: 24px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255, 250, 242, .76);
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: inline-flex;
+      margin-bottom: 16px;
+      color: var(--gold);
+      font: 800 28px/1 "Songti TC", serif;
+    }
+
+    .account-box {
+      display: grid;
+      grid-template-columns: 1fr 1.25fr;
+      gap: 22px;
+    }
+
+    .ids {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .footer {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .to-top {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      width: 48px;
+      height: 48px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--ink);
+      color: var(--cream-2);
+      font-size: 22px;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: .2s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .to-top.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .hero,
+      .grid-2,
+      .members,
+      .account-box {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3,
+      .grid-4,
+      .grid-5,
+      .steps {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .hero {
+        min-height: auto;
+        width: min(var(--max), calc(100% - 48px));
+        padding-left: 0;
+      }
+
+      .hero-portraits {
+        max-width: 640px;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 0;
+      }
+
+      section {
+        padding: 54px 0;
+        scroll-margin-top: 120px;
+      }
+
+      .hero {
+        padding-top: 46px;
+        width: min(var(--max), calc(100% - 32px));
+      }
+
+      .hero-logo {
+        width: min(420px, 96vw);
+        margin-left: -10px;
+      }
+
+      .positioning-box strong {
+        white-space: normal;
+      }
+
+      .hero-portraits,
+      .grid-3,
+      .grid-4,
+      .grid-5,
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      .portrait-card:nth-child(2) {
+        margin-top: 0;
+      }
+
+      .ratio-row {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .member-body,
+      .soft-card,
+      .formula-card,
+      .notice-card {
+        padding: 18px;
+      }
+    }
+
+    @media print {
+      html, body {
+        background: #fff;
+      }
+
+      .site-nav,
+      .to-top,
+      .hero-actions {
+        display: none;
+      }
+
+      section,
+      .hero,
+      .footer {
+        width: 100%;
+        padding-left: 14mm;
+        padding-right: 14mm;
+      }
+
+      section {
+        page-break-inside: avoid;
+      }
+
+      .soft-card,
+      .member-card,
+      .quote-panel,
+      .timeline-item,
+      .formula-card,
+      .notice-card,
+      .table-wrap {
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="site-nav" aria-label="頁面導覽">
+    <div class="nav-inner">
+      <a class="brand-mark" href="#top" aria-label="東。西 Pipa X Cello">
+        <img src="images/logo-final.png?v=3" alt="東。西 Pipa X Cello logo">
+      </a>
+      <div class="nav-links">
+        <a href="#concept">企劃概念</a>
+        <a href="#members">成員介紹</a>
+        <a href="#content">內容方向</a>
+        <a href="#reels">12 支 Reels</a>
+        <a href="#month">第一個月</a>
+        <a href="#ep1">EP1</a>
+        <a href="#conclusion">結論</a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Music Content Brand Proposal</p>
+        <div class="hero-logo" aria-label="東。西 Pipa X Cello">
+          <img src="images/logo-final.png?v=3" alt="東。西 Pipa X Cello logo">
+          <div class="logo-fallback">東。西</div>
+        </div>
+        <p class="hero-sub">琵琶 × 大提琴的雙人音樂企劃</p>
+        <p class="lead">把流行歌、生活日常和各種奇怪又好聽的靈感，<br>玩成新的音樂東。西。</p>
+        <div class="slogan">下次要玩什麼東。西？</div>
+        <div class="hero-actions">
+          <a class="btn" href="#concept">查看企劃定位</a>
+          <a class="btn secondary" href="#month">第一個月怎麼開始</a>
+        </div>
+      </div>
+      <div class="hero-portraits" aria-label="成員照片">
+        <article class="portrait-card">
+          <div class="portrait-media">
+            <img src="images/shengzhi.jpg" alt="邱聖之大提琴人物照">
+            <div class="image-fallback">邱聖之<br>Cello</div>
+          </div>
+          <div class="portrait-caption">
+            <strong>邱聖之</strong>
+            <span>大提琴 Cello · @shengzhi0421</span>
+          </div>
+        </article>
+        <article class="portrait-card">
+          <div class="portrait-media">
+            <img src="images/joy.jpg?v=2" alt="Joy 琵琶人物照">
+            <div class="image-fallback">Joy<br>Pipa</div>
+          </div>
+          <div class="portrait-caption">
+            <strong>Joy</strong>
+            <span>琵琶 Pipa · @joyliu916</span>
+          </div>
+        </article>
+      </div>
+    </header>
+
+    <section id="concept">
+      <div class="section-head">
+        <p class="eyebrow">01 / Concept</p>
+        <h2>企劃概念</h2>
+      </div>
+      <div class="quote-panel">
+        <p class="lead">「東。西」是一個由琵琶演奏者 Joy 與大提琴演奏者邱聖之組成的雙人音樂企劃。</p>
+        <br>
+        <p>我們希望透過國樂與西樂的組合，把大家熟悉的流行歌曲、生活聲音、日常情境與舞台演出，重新改編成有趣、好聽、有記憶點的短影音內容。</p>
+        <br>
+        <p>這個企劃不一開始走嚴肅的古典或傳統音樂路線，而是先用幽默、生活感和流行音樂切入，讓更多人願意靠近琵琶與大提琴。</p>
+        <div class="positioning-box">
+          <span class="box-label">一句話定位</span>
+          <strong>琵琶與大提琴，把流行歌和生活日常，玩成各種東。西。</strong>
+        </div>
+      </div>
+    </section>
+
+    <section id="members">
+      <div class="section-head">
+        <p class="eyebrow">02 / Duo Setting</p>
+        <h2>成員介紹</h2>
+      </div>
+      <div class="members">
+        <article class="member-card">
+          <div class="member-photo">
+            <img src="images/joy.jpg?v=2" alt="劉佳瑩 Joy 琵琶人物照">
+            <div class="image-fallback">Joy<br>Pipa</div>
+          </div>
+          <div class="member-body">
+            <div class="tag-row"><span class="pill">東｜Pipa</span><span class="pill">@joyliu916</span></div>
+            <h3>劉佳瑩 Joy</h3>
+            <p class="member-role">琵琶｜音樂創作者｜表演藝術家</p>
+            <p><strong>一句話定位：</strong>以靈動俐落的琵琶聲響與跨界創作能量，為「東。西」帶來東方線條、節奏顆粒、舞台感與幽默反差。</p>
+            <div class="divider"></div>
+            <p>劉佳瑩 Joy 為琵琶演奏者、音樂創作者與表演藝術家，亦為普琈門樂團團長。她長期活躍於跨界音樂與表演藝術場域，演出形式橫跨音樂、劇場、舞蹈劇場、火舞劇場與當代表演。</p>
+            <ul>
+              <li>普琈門樂團團長</li>
+              <li>曾受邀赴美國、日本、中國大陸、馬來西亞、印尼、巴拉圭、法國、保加利亞、羅馬尼亞、土耳其等地演出</li>
+              <li>2025 日本東京上野《台灣祭》、台南國際龍舟錦標賽、第 36 屆傳藝金曲獎特邀樂手</li>
+              <li>2025 馬來西亞《吉打河之聲藝術節》邀演團隊，2023《醒醒音樂節》特邀樂手，2022《世界音樂節》入圍演出團隊</li>
+              <li>曾參與百年金庸閉幕式、即將成真火舞團、無垢舞蹈劇場與雲林國際偶戲節等跨界創作</li>
+            </ul>
+            <div class="divider"></div>
+            <p><strong>在「東。西」中的角色：</strong>Joy 負責琵琶聲部、東方聲響設計、節奏顆粒、旋律裝飾與跨界舞台語彙，讓流行 Cover、生活聲音改編與小劇場內容具備靈動、機靈且帶反差感的辨識度。</p>
+          </div>
+        </article>
+
+        <article class="member-card">
+          <div class="member-photo">
+            <img src="images/shengzhi.jpg" alt="邱聖之大提琴人物照">
+            <div class="image-fallback">邱聖之<br>Cello</div>
+          </div>
+          <div class="member-body">
+            <div class="tag-row"><span class="pill">西｜Cello</span><span class="pill">@shengzhi0421</span></div>
+            <h3>邱聖之 Sheng-Chih Chiu</h3>
+            <p class="member-role">大提琴｜音樂教育者｜跨界演出者</p>
+            <p><strong>一句話定位：</strong>以溫柔厚實的大提琴聲線，為「東。西」建立情緒、低頻、和聲與畫面感。</p>
+            <div class="divider"></div>
+            <p>邱聖之畢業於實踐大學音樂系碩士，積極參與多元型態的音樂演出與跨界合作，同時致力於大提琴教學與弦樂教育。</p>
+            <p>現任東湖國小弦樂團指揮暨大提琴教師、秀朗國小弦樂團大提琴教師，長期投入兒童與青少年弦樂教育，具備豐富的教學、排練與舞台實務經驗。</p>
+            <ul>
+              <li>實踐大學音樂系碩士畢業</li>
+              <li>現任東湖國小弦樂團指揮暨大提琴教師、秀朗國小弦樂團大提琴教師</li>
+              <li>曾參與瑪蓋丹《美好的，怎麼了？》錄製，作品入圍第 29 屆金曲獎</li>
+              <li>曾參與 Disney+、張惠妹相關專案與理想混蛋專輯錄製</li>
+              <li>2023–2025 好日樂團大提琴手，2025 受邀參與 Vancouver JMF 國際音樂節演出</li>
+              <li>2025 參與錄製戲劇《愛作歹》配樂，作品榮獲第 60 屆金鐘獎「戲劇類節目配樂獎」</li>
+            </ul>
+            <div class="divider"></div>
+            <p><strong>在「東。西」中的角色：</strong>邱聖之負責大提琴聲部、低頻設計、和聲鋪陳、音樂情緒與西方弦樂語彙。她的大提琴聲音能替琵琶的顆粒感建立穩定基底，讓幽默、生活化的內容仍保有音樂厚度與畫面感。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="personality">
+      <div class="section-head">
+        <p class="eyebrow">03 / Brand Voice</p>
+        <h2>品牌個性</h2>
+      </div>
+      <div class="grid-5">
+        <div class="soft-card"><h3>幽默</h3><p>可以玩諧音梗、生活梗、反差感。</p></div>
+        <div class="soft-card"><h3>好聽</h3><p>雖然輕鬆，但音樂品質不能隨便。</p></div>
+        <div class="soft-card"><h3>生活化</h3><p>不只演奏，也讓觀眾看到兩人的互動。</p></div>
+        <div class="soft-card"><h3>有質感</h3><p>畫面與音樂仍保留專業感。</p></div>
+        <div class="soft-card"><h3>可延伸</h3><p>未來可發展成演出、品牌合作、音樂會。</p></div>
+      </div>
+    </section>
+
+    <section id="slogan">
+      <div class="section-head">
+        <p class="eyebrow">04 / Fixed Line</p>
+        <h2>固定 Slogan</h2>
+      </div>
+      <div class="quote-panel">
+        <strong>下次要玩什麼東。西？</strong>
+        <p class="lead">這句可以固定放在每支影片結尾，作為觀眾留言互動的引導。</p>
+      </div>
+      <br>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>使用情境</th><th>文案</th></tr></thead>
+          <tbody>
+            <tr><td>片頭</td><td>今天來玩一個東。西</td></tr>
+            <tr><td>片尾</td><td>下次要玩什麼東。西？</td></tr>
+            <tr><td>留言引導</td><td>留言告訴我們，下一首要改什麼東。西</td></tr>
+            <tr><td>搞笑版</td><td>搞什麼東西？搞音樂的東。西</td></tr>
+            <tr><td>自介版</td><td>我們是東。西，專門把音樂玩成各種東西</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="why">
+      <div class="section-head">
+        <p class="eyebrow">05 / Why Now</p>
+        <h2>為什麼值得做？</h2>
+      </div>
+      <div class="grid-4">
+        <div class="soft-card"><h3>組合有辨識度</h3><p>琵琶偏顆粒、節奏、東方線條；大提琴偏低頻、情緒、空間感。兩者放在一起，很容易做出「熟悉又陌生」的音樂效果。</p></div>
+        <div class="soft-card"><h3>Reels 適合測試</h3><p>先從流行歌、爆款旋律、生活聲音改編開始。觀眾聽得懂旋律，就更容易停下來看。</p></div>
+        <div class="soft-card"><h3>內容可系列化</h3><p>流行歌東。西版、生活聲音東。西版、小劇場、觀眾點歌、節日主題、婚禮進場版都能延伸。</p></div>
+        <div class="soft-card"><h3>有商業轉換</h3><p>帳號經營起來後，可延伸到婚禮演出、品牌活動、企業晚宴、音樂會、跨界合作與線上內容合作。</p></div>
+      </div>
+    </section>
+
+    <section id="content">
+      <div class="section-head">
+        <p class="eyebrow">06 / Content Pillars</p>
+        <h2>內容經營方向</h2>
+      </div>
+      <div class="grid-2">
+        <div class="soft-card"><h3>方向一：流行 Cover 改編</h3><p>把近期爆紅或大家熟悉的歌曲，改成琵琶＋大提琴版本。</p><ul><li>如果這首歌變成東。西版？</li><li>這首爆紅旋律，用琵琶＋大提琴會變怎樣？</li><li>原本很洗腦，結果被我們改成很有戲</li></ul><p><strong>目的：</strong>用熟悉旋律吸引觀眾停下來，再用改編建立記憶點。</p></div>
+        <div class="soft-card"><h3>方向二：生活聲音改編</h3><p>把生活裡常聽到的聲音、情境、情緒改成音樂。</p><ul><li>iPhone 鬧鐘、Line 訊息聲、垃圾車音樂</li><li>捷運關門聲、老闆說「簡單改一下」</li><li>加班到半夜、貓咪暴衝、下雨天</li></ul><p><strong>目的：</strong>增加幽默感與生活感，讓觀眾更容易留言互動。</p></div>
+        <div class="soft-card"><h3>方向三：東。西小劇場</h3><p>用短對話開場，再接一段演奏。</p><ul><li>Joy：「今天要玩什麼東西？」</li><li>邱聖之：「你不要每次都講得像我們在亂搞。」</li><li>Joy：「我們不是嗎？」接演奏。</li></ul><p><strong>目的：</strong>讓觀眾不只記得樂器，也記得兩個人的個性和互動。</p></div>
+        <div class="soft-card"><h3>方向四：表演與排練紀錄</h3><p>記錄兩人排練、演出、準備、後台、NG、改編過程。</p><ul><li>琵琶跟大提琴第一次排這首歌</li><li>表演前 10 分鐘我們在幹嘛</li><li>這段排了 8 次，最後笑場 9 次</li></ul><p><strong>目的：</strong>建立真實感與專業感，也方便未來接演出邀約。</p></div>
+      </div>
+    </section>
+
+    <section id="ratio">
+      <div class="section-head">
+        <p class="eyebrow">07 / First 3 Months</p>
+        <h2>前三個月內容比例</h2>
+      </div>
+      <div class="ratio-list">
+        <div class="ratio-row"><strong>流行 Cover 改編｜45%</strong><div class="bar"><span style="width:45%"></span></div><span>增加觸及與停留</span></div>
+        <div class="ratio-row"><strong>生活梗改編｜25%</strong><div class="bar"><span style="width:25%"></span></div><span>建立幽默記憶點</span></div>
+        <div class="ratio-row"><strong>小劇場互動｜15%</strong><div class="bar"><span style="width:15%"></span></div><span>建立人物魅力</span></div>
+        <div class="ratio-row"><strong>表演／排練紀錄｜15%</strong><div class="bar"><span style="width:15%"></span></div><span>建立專業與商演價值</span></div>
+      </div>
+    </section>
+
+    <section id="goals">
+      <div class="section-head">
+        <p class="eyebrow">08 / Phase One</p>
+        <h2>第一階段目標：0–3 個月</h2>
+        <p class="lead">第一階段不以接案或營利為主要目標，而是先讓帳號被記住。</p>
+      </div>
+      <div class="grid-3">
+        <div class="soft-card"><h3>建立辨識度</h3><p>讓觀眾知道有一組「琵琶＋大提琴」的雙人音樂組合，叫做東。西。</p></div>
+        <div class="soft-card"><h3>建立固定內容格式</h3><p>固定做流行歌改編、生活梗音樂化、兩人互動小劇場與表演紀錄。</p></div>
+        <div class="soft-card"><h3>開始累積互動</h3><p>希望留言開始出現：下一首可以改這首嗎？可以玩某某東西嗎？想看現場，可以婚禮演出嗎？</p></div>
+      </div>
+    </section>
+
+    <section id="reels">
+      <div class="section-head">
+        <p class="eyebrow">09 / Reels Ideas</p>
+        <h2>第一波 12 支 Reels 內容提案</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>集數</th><th>類型</th><th>主題</th><th>Hook</th></tr></thead>
+          <tbody>
+            <tr><td>EP1</td><td>介紹</td><td>我們是什麼東。西</td><td>一把琵琶＋一把大提琴，這是什麼東。西？</td></tr>
+            <tr><td>EP2</td><td>Cover</td><td>爆款歌東。西版</td><td>這首最近一直聽到，我們把它改成琵琶＋大提琴版</td></tr>
+            <tr><td>EP3</td><td>Cover</td><td>甜歌變古裝劇</td><td>原本很甜，結果一加琵琶跟大提琴，好像有人要進宮</td></tr>
+            <tr><td>EP4</td><td>生活</td><td>iPhone 鬧鐘</td><td>讓人最想關掉的聲音，我們把它變好聽</td></tr>
+            <tr><td>EP5</td><td>生活</td><td>Line 訊息聲</td><td>如果曖昧對象傳訊息，有自己的配樂</td></tr>
+            <tr><td>EP6</td><td>生活</td><td>垃圾車音樂</td><td>台灣人 DNA 裡的旋律，被我們改成史詩版</td></tr>
+            <tr><td>EP7</td><td>Cover</td><td>失戀歌變武俠片</td><td>這首歌本來很痛，我們讓它更像江湖恩怨</td></tr>
+            <tr><td>EP8</td><td>紀錄</td><td>第一次合奏</td><td>琵琶跟大提琴第一次合體，會變成什麼東西？</td></tr>
+            <tr><td>EP9</td><td>小劇場</td><td>今天要玩什麼</td><td>搞什麼東西？搞音樂的東。西</td></tr>
+            <tr><td>EP10</td><td>商演感</td><td>婚禮進場東。西版</td><td>如果婚禮進場不是鋼琴，而是琵琶＋大提琴？</td></tr>
+            <tr><td>EP11</td><td>表演</td><td>演出前紀錄</td><td>大提琴跟琵琶出門表演，最麻煩的不是音樂</td></tr>
+            <tr><td>EP12</td><td>互動</td><td>觀眾留言點歌</td><td>你們留言的東。西，我們真的做了</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="formula">
+      <div class="section-head">
+        <p class="eyebrow">10 / Video System</p>
+        <h2>影片固定公式</h2>
+      </div>
+      <div class="grid-3">
+        <div class="formula-card"><h3>Cover 類影片公式</h3><p>0–2 秒｜Hook：如果這首歌變成東。西版？</p><p>2–5 秒｜先彈出大家聽得懂的原曲旋律</p><p>5–20 秒｜琵琶＋大提琴改編主段</p><p>20–25 秒｜兩人互動或表情反應</p><p>25–30 秒｜下次要玩什麼東。西？</p></div>
+        <div class="formula-card"><h3>生活梗影片公式</h3><p>0–3 秒｜這個生活聲音，可以變成音樂嗎？</p><p>3–6 秒｜播出原聲或演出生活情境</p><p>6–8 秒｜兩人互看：「可以吧？」</p><p>8–25 秒｜東。西版改編</p><p>25–30 秒｜留言告訴我們，下一次玩什麼東。西？</p></div>
+        <div class="formula-card"><h3>小劇場影片公式</h3><p>0–8 秒｜兩人簡短對話拋梗</p><p>8–10 秒｜表情停頓或反差</p><p>10–28 秒｜開始演奏</p><p>28–32 秒｜固定 Slogan</p></div>
+      </div>
+    </section>
+
+    <section id="ig">
+      <div class="section-head">
+        <p class="eyebrow">11 / Instagram Setup</p>
+        <h2>IG 帳號設定建議</h2>
+      </div>
+      <div class="account-box">
+        <div class="soft-card"><h3>顯示名稱</h3><p class="lead">東。西｜琵琶 × 大提琴</p><div class="divider"></div><h3>Bio</h3><p>琵琶｜Joy @joyliu916<br>大提琴｜邱聖之 @shengzhi0421<br>流行 Cover｜生活改編｜現場演出<br>下次要玩什麼東。西？</p></div>
+        <div class="soft-card"><h3>帳號 ID 候選</h3><div class="ids"><span class="pill">dongxi.music</span><span class="pill">dongxi.duo</span><span class="pill">dongxi.tw</span><span class="pill">dongxi.sound</span><span class="pill">play.dongxi</span><span class="pill">dongxi.pipacello</span><span class="pill">dongxi.crossover</span><span class="pill">dongxi.tw.music</span></div><div class="divider"></div><p><strong>建議優先使用：</strong>dongxi.music<br><strong>如果已被使用，第二選擇：</strong>dongxi.duo</p></div>
+      </div>
+    </section>
+
+    <section id="visual">
+      <div class="section-head">
+        <p class="eyebrow">12 / Visual Direction</p>
+        <h2>視覺風格建議</h2>
+        <p class="lead">不要太傳統，也不要太嚴肅。視覺應該是有質感，但看起來親近；有音樂性，但不難懂。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>項目</th><th>建議</th></tr></thead>
+          <tbody>
+            <tr><td>色系</td><td>米白、黑、深咖、木質色</td></tr>
+            <tr><td>字體</td><td>乾淨黑體＋一點明體感</td></tr>
+            <tr><td>畫面</td><td>樂器特寫、兩人互動、生活物件</td></tr>
+            <tr><td>字幕</td><td>大、短、幽默、好懂</td></tr>
+            <tr><td>穿搭</td><td>一位偏東方元素，一位偏西方簡約，但不要太刻意 cosplay</td></tr>
+            <tr><td>場景</td><td>排練室、生活空間、舞台、咖啡廳、乾淨棚拍</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="month">
+      <div class="section-head">
+        <p class="eyebrow">13 / Month One</p>
+        <h2>第一個月執行計畫</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item"><strong>第 1 週</strong><div><h3>帳號建立與拍攝準備</h3><ul><li>建立 IG 帳號、確認帳號名稱、Bio、大頭貼</li><li>確認 Logo 字卡、第一批曲目、拍攝風格</li><li>安排第一次拍攝，一次拍 4–6 支 Reels 素材</li></ul></div></div>
+        <div class="timeline-item"><strong>第 2 週</strong><div><h3>正式發佈</h3><ul><li>EP1 我們是什麼東。西</li><li>EP2 爆款歌東。西版</li><li>EP3 iPhone 鬧鐘東。西版</li><li>限動投票：問觀眾下一首想聽什麼</li></ul></div></div>
+        <div class="timeline-item"><strong>第 3 週</strong><div><h3>測試互動</h3><ul><li>EP4 垃圾車音樂史詩版</li><li>EP5 失戀歌變武俠片</li><li>EP6 Line 訊息聲曖昧版</li><li>幕後花絮</li></ul></div></div>
+        <div class="timeline-item"><strong>第 4 週</strong><div><h3>建立商業感</h3><ul><li>EP7 婚禮進場東。西版</li><li>EP8 表演紀錄</li><li>EP9 觀眾留言點歌</li><li>限動問答：開放點歌／點主題</li></ul></div></div>
+      </div>
+    </section>
+
+    <section id="roles">
+      <div class="section-head">
+        <p class="eyebrow">14 / Workflow</p>
+        <h2>初期分工建議</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>角色</th><th>工作</th></tr></thead>
+          <tbody>
+            <tr><td>Joy</td><td>琵琶演奏、曲目討論、東方聲響設計</td></tr>
+            <tr><td>邱聖之</td><td>大提琴演奏、和聲／低頻設計、音樂情緒處理</td></tr>
+            <tr><td>翟平</td><td>企劃、拍攝、剪輯、帳號經營、文案、發佈排程</td></tr>
+            <tr><td>共同討論</td><td>曲目選擇、影片風格、演出方向</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="notes">
+      <div class="section-head">
+        <p class="eyebrow">15 / Watch-outs</p>
+        <h2>需要注意的問題</h2>
+      </div>
+      <div class="grid-4">
+        <div class="notice-card"><h3>不要一開始壓力太大</h3><p>前期先測試，不要一開始就設定成正式出道或大型品牌發表。建議先用「三個月短影音實驗計畫」。</p></div>
+        <div class="notice-card"><h3>Cover 曲目注意版權</h3><p>初期 Reels 可先以平台音源、短片段改編、非營利曝光為主；未來商演、上架或合作要確認授權。</p></div>
+        <div class="notice-card"><h3>不要只靠好聽</h3><p>需要固定加入兩人對話、生活梗、幕後紀錄與觀眾點題，建立人格與記憶點。</p></div>
+        <div class="notice-card"><h3>內容要可複製</h3><p>前期建立固定模板：Cover、生活聲音、小劇場、表演紀錄，不要每支影片都重新發明一次。</p></div>
+      </div>
+    </section>
+
+    <section id="future">
+      <div class="section-head">
+        <p class="eyebrow">16 / Roadmap</p>
+        <h2>未來發展方向</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><h3>短影音起號</h3><p>目標：建立辨識度與互動。</p></div>
+        <div class="step"><h3>建立代表作品</h3><p>例如爆款歌東。西版、垃圾車史詩版、婚禮進場東。西版、觀眾點歌東。西版。</p></div>
+        <div class="step"><h3>接演出與合作</h3><p>婚禮演出、品牌活動、音樂會開場、飯店／商場活動、藝文活動與節慶活動。</p></div>
+        <div class="step"><h3>完整音樂品牌</h3><p>規劃《東。西：很多東西音樂會》，把生活、城市、愛情、節日、回憶整理成有敘事感的音樂會。</p></div>
+      </div>
+    </section>
+
+    <section id="ep1">
+      <div class="section-head">
+        <p class="eyebrow">17 / First Video</p>
+        <h2>EP1｜我們是什麼東。西？</h2>
+        <p class="lead">影片標題：一把琵琶＋一把大提琴，這是什麼東。西？｜長度：30 秒</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>秒數</th><th>畫面</th><th>字幕／內容</th></tr></thead>
+          <tbody>
+            <tr><td>0–2</td><td>兩人拿樂器坐定位</td><td>一把琵琶＋一把大提琴</td></tr>
+            <tr><td>2–4</td><td>Joy 看鏡頭</td><td>這是什麼東。西？</td></tr>
+            <tr><td>4–7</td><td>邱聖之拉一小段低音</td><td>西邊先來一點</td></tr>
+            <tr><td>7–10</td><td>Joy 彈一小段琵琶</td><td>東邊也來一點</td></tr>
+            <tr><td>10–24</td><td>兩人合奏一段流行旋律改編</td><td>結果變成這樣</td></tr>
+            <tr><td>24–27</td><td>兩人互看／笑一下</td><td>好像真的有點東西</td></tr>
+            <tr><td>27–30</td><td>Logo 字卡</td><td>下次要玩什麼東。西？</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <br>
+      <div class="soft-card">
+        <h3>Caption</h3>
+        <p>一把琵琶，一把大提琴，<br>我們決定把流行歌、生活日常、各種奇怪又好聽的東西，通通玩成音樂。</p>
+        <p><br>我們是「東。西」。</p>
+        <p><br>琵琶｜Joy @joyliu916<br>大提琴｜邱聖之 @shengzhi0421</p>
+        <p><br>下次要玩什麼東。西？<br>留言點題。</p>
+      </div>
+    </section>
+
+    <section id="conclusion">
+      <div class="section-head">
+        <p class="eyebrow">18 / Closing</p>
+        <h2>企劃結論</h2>
+      </div>
+      <div class="quote-panel">
+        <p>「東。西」不是一個只做中西合璧的演奏組合，而是一個可以被長期經營的音樂內容品牌。</p>
+        <br>
+        <p>前期先用 Reels 測試市場，用流行 Cover 和生活幽默讓觀眾停下來，再透過兩位演奏者的專業與互動，慢慢建立辨識度。</p>
+        <br>
+        <strong>有一組琵琶＋大提琴，叫做東。西。她們很會把各種東西玩成音樂。</strong>
+        <br>
+        <p class="lead">第一階段目標很簡單：先讓帳號活起來，讓觀眾開始期待：下次她們要玩什麼東。西？</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>企劃整理：翟平</p>
+  </footer>
+
+  <button class="to-top" type="button" aria-label="返回頂部">↑</button>
+
+  <script>
+    const topButton = document.querySelector('.to-top');
+    const missingImages = document.querySelectorAll('img');
+
+    missingImages.forEach((img) => {
+      img.addEventListener('error', () => {
+        img.classList.add('is-missing');
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      topButton.classList.toggle('is-visible', window.scrollY > 500);
+    }, { passive: true });
+
+    topButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
